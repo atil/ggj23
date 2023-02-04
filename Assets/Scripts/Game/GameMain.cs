@@ -2,57 +2,60 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using JamKit;
 
 namespace Game
 {
-	[Serializable]
-	public enum EmailResult
-	{
-		Yes = 0,
-		No = 1,
-	}
+    [Serializable]
+    public enum EmailResult
+    {
+        Yes = 0,
+        No = 1,
+    }
     public class GameMain : MonoBehaviour
     {
-		public GameUi gameUi;
+        public GameUi gameUi;
 
-		int score = 0;
+        int score = 0;
 
-		int currentEmailIndex = 0;
-		Email[] emails;
-		private void Start()
-		{
-			TextAsset[] emailAssets = Resources.LoadAll<TextAsset>("Emails");
-			List<Email> emailsList = new List<Email>();
-			foreach(TextAsset emailAsset in emailAssets)
-			{
-				Email email = JsonUtility.FromJson<Email>(emailAsset.text);
-				emailsList.Add(email);
-			}
+        int currentEmailIndex = 0;
+        Email[] emails;
+        private void Start()
+        {
+            TextAsset[] emailAssets = Resources.LoadAll<TextAsset>("Emails");
+            List<Email> emailsList = new List<Email>();
+            foreach (TextAsset emailAsset in emailAssets)
+            {
+                Email email = JsonUtility.FromJson<Email>(emailAsset.text);
+                emailsList.Add(email);
+            }
 
-			emails = emailsList.OrderBy(x => x.index).ToArray();
+            emails = emailsList.OrderBy(x => x.index).ToArray();
 
-			currentEmailIndex = 0;
-			SetEmail(emails[currentEmailIndex]);
-		}
+            currentEmailIndex = 0;
+            SetEmail(emails[currentEmailIndex]);
+        }
 
-		public void SetEmail(Email email)
-		{
-			gameUi.SetEmail(email);
-		}
+        public void SetEmail(Email email)
+        {
+            gameUi.SetEmail(email);
+        }
 
-		public void ResponseGiven(int result)
-		{
-			Email email = emails[currentEmailIndex];
-			if((EmailResult)result == EmailResult.Yes)
-			{
-				score += email.forwardScore;
-			}
-			else
-			{
-				score += email.reportScore;
-			}
-			currentEmailIndex++;
-			SetEmail(emails[currentEmailIndex]);
-		}
-	}
+        public void ResponseGiven(int result)
+        {
+            Email email = emails[currentEmailIndex];
+            if ((EmailResult)result == EmailResult.Yes)
+            {
+                Sfx.Instance.PlayRandom("Forward");
+                score += email.forwardScore;
+            }
+            else
+            {
+                Sfx.Instance.PlayRandom("Delete");
+                score += email.reportScore;
+            }
+            currentEmailIndex++;
+            SetEmail(emails[currentEmailIndex]);
+        }
+    }
 }

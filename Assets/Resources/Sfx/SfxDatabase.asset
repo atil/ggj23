@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a91805fff024ba6bea0aec12f8bcf03, type: 3}
   m_Name: SfxDatabase
   m_EditorClassIdentifier: 
-  _clips: []
+  _clips:
+  - {fileID: 8300000, guid: e035f4c7658a6e54089a437ff6894dac, type: 3}
+  - {fileID: 8300000, guid: a87efba3cbc2f7842a4e3721d572d4c3, type: 3}
+  - {fileID: 8300000, guid: b0394acb872d386499d2fe9852f47e3e, type: 3}
+  - {fileID: 8300000, guid: 7cd1419038abe6b4bb8c3004418b72e3, type: 3}
+  - {fileID: 8300000, guid: 66b25bf15a1b21a438ff971256efbdc7, type: 3}
+  - {fileID: 8300000, guid: 8c6159dd0f0719c42901b2ef3123f5c7, type: 3}

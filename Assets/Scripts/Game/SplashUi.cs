@@ -15,9 +15,10 @@ namespace Game
         {
             Flash(_openFlashInfo);
         }
-        
+
         public void OnClickedPlayButton()
         {
+            Sfx.Instance.PlayRandom("Click");
             _playButton.interactable = false;
             Flash(_closeFlashInfo, () => SceneManager.LoadScene("Game"));
         }

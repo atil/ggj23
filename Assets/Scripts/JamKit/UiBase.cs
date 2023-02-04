@@ -32,15 +32,15 @@ namespace JamKit
 
         protected void Flash(FlashInfo flashInfo, Action postAction)
         {
-            Curve.Tween(flashInfo.Curve,
+            Curve.TweenDiscrete(flashInfo.Curve,
                 flashInfo.Duration,
+                0.2f,
                 t => { _coverImage.color = Color.Lerp(flashInfo.StartColor, flashInfo.EndColor, t); },
                 () =>
                 {
                     _coverImage.color = flashInfo.EndColor;
                     postAction?.Invoke();
                 });
-
         }
     }
 }
