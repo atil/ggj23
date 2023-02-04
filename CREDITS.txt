@@ -4,5 +4,14 @@ https://opengameart.org/content/pixui-asset-pack-1-ctatz
 UI assets by Kenney
 https://kenney.nl/assets/pixel-ui-pack
 
+UI assets by TokyoGeisha
+https://opengameart.org/content/pixel-uihud-pack
+
 Font "PixelMix" by Andrew Tyler
 https://www.dafont.com/pixelmix.font
+
+Pixatool by Kronbits
+https://kronbits.itch.io/pixatool
+
+Background by rh0
+https://opengameart.org/content/generated-backgrounds-vol-3-1280x960
