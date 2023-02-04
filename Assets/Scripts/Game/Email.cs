@@ -5,18 +5,18 @@ using UnityEngine;
 
 namespace Game
 {
-	[Serializable]
-	public class Email
-	{
-		public int index;
-		public string from;
-		public string to;
+    [Serializable]
+    public class Email
+    {
+        public int Index;
+        public string From;
+        public string To;
 
-		public string subject;
-		public string messageBody;
+        public string Subject;
+        public string MessageBody;
 
-		public int forwardScore;
-		public int reportScore;
-	}
+        public int ForwardScore;
+        public int ReportScore;
+    }
 }
 

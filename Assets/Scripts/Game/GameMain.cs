@@ -12,14 +12,26 @@ namespace Game
         Yes = 0,
         No = 1,
     }
+
     public class GameMain : MonoBehaviour
     {
+        private enum GameState
+        {
+            Email,
+            Wait,
+            Notification,
+            Confirmation,
+        }
+
         public GameUi gameUi;
 
-        int score = 0;
+        private int _score = 0;
+        private EmailResult? _lastResponse = null;
 
-        int currentEmailIndex = 0;
-        Email[] emails;
+        private int _currentEmailIndex = 0;
+        private Email[] _emails;
+        private GameState _currentState = GameState.Email;
+
         private void Start()
         {
             TextAsset[] emailAssets = Resources.LoadAll<TextAsset>("Emails");
@@ -30,32 +42,78 @@ namespace Game
                 emailsList.Add(email);
             }
 
-            emails = emailsList.OrderBy(x => x.index).ToArray();
+            _emails = emailsList.OrderBy(x => x.Index).ToArray();
 
-            currentEmailIndex = 0;
-            SetEmail(emails[currentEmailIndex]);
+            _currentEmailIndex = 0;
+            SetState(GameState.Email);
         }
 
-        public void SetEmail(Email email)
+        private void SetEmail(Email email)
         {
             gameUi.SetEmail(email);
         }
 
-        public void ResponseGiven(int result)
+        public void ResponseGiven(int resultInt)
         {
-            Email email = emails[currentEmailIndex];
-            if ((EmailResult)result == EmailResult.Yes)
+            Email email = _emails[_currentEmailIndex];
+            EmailResult result = (EmailResult)resultInt;
+            if (result == EmailResult.Yes)
             {
                 Sfx.Instance.PlayRandom("Forward");
-                score += email.forwardScore;
+                _score += email.ForwardScore;
             }
             else
             {
                 Sfx.Instance.PlayRandom("Delete");
-                score += email.reportScore;
+                _score += email.ReportScore;
             }
-            currentEmailIndex++;
-            SetEmail(emails[currentEmailIndex]);
+
+            _lastResponse = result;
+            gameUi.ClearEmail();
+
+            SetState(GameState.Confirmation);
+        }
+
+        public void NotificationClicked()
+        {
+            _currentEmailIndex++;
+
+            Sfx.Instance.Play("ClickMenu");
+            SetState(GameState.Email);
+            gameUi.ClearNotification();
+        }
+
+        public void ConfirmationClicked()
+        {
+            Sfx.Instance.Play("ClickMenu");
+            SetState(GameState.Wait);
+            gameUi.ClearConfirmation();
+        }
+
+        private void SetState(GameState newState)
+        {
+            _currentState = newState;
+            switch (_currentState)
+            {
+                case GameState.Email:
+                    SetEmail(_emails[_currentEmailIndex]);
+                    break;
+                case GameState.Wait:
+                    CoroutineStarter.RunDelayed(UnityEngine.Random.Range(1.0f, 1.5f), () =>
+                    {
+                        SetState(GameState.Notification);
+                    });
+                    break;
+                case GameState.Notification:
+                    gameUi.SetNotification();
+                    break;
+                case GameState.Confirmation:
+                    gameUi.SetConfirmation(_lastResponse.Value);
+
+                    _lastResponse = null;
+                    break;
+            }
+
         }
     }
 }

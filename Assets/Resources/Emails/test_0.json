@@ -1,10 +1,10 @@
 {
-  "index": 0,
-  "from": "gamestormberlin@gmail.com",
-  "to": "cultist.asshole@root.com",
-  "expectedResult": "yes",
-  "subject": "GGJ katılma isteği hakkında",
-  "forwardScore": 1,
-  "reportScore":  -1,
-  "messageBody": "Merhaba sayın cultist,\n\nGGJ 2023e katılma isteğinizi belirtmişsiniz, ancak malesef etkinliğe orospu cocuklarının katılması yasak olduğundan isteğiniz reddedilmiştir.\n\nİyi günler dileriz.\n\nGGJ 2023"
+  "Index": 0,
+  "From": "gamestormberlin@gmail.com",
+  "To": "cultist.asshole@root.com",
+  "ExpectedResult": "yes",
+  "Subject": "GGJ katılma isteği hakkında",
+  "ForwardScore": 1,
+  "ReportScore": -1,
+  "MessageBody": "Merhaba sayın cultist,\n\nGGJ 2023e katılma isteğinizi belirtmişsiniz, ancak malesef etkinliğe orospu cocuklarının katılması yasak olduğundan isteğiniz reddedilmiştir.\n\nİyi günler dileriz.\n\nGGJ 2023"
 }

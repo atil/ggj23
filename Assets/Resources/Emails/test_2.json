@@ -1,0 +1,10 @@
+{
+  "Index": 2,
+  "From": "TEST@TEST.com",
+  "To": "cultist.asshole@root.com",
+  "ExpectedResult": "yes",
+  "Subject": "index 2",
+  "ForwardScore": 1,
+  "ReportScore": -1,
+  "MessageBody": "TEST CONTENT OF MESSAGE AT INDEX 2"
+}
