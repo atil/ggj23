@@ -874,7 +874,7 @@ MonoBehaviour:
   _coverImage: {fileID: 831257813}
   _playButton: {fileID: 1062814664}
   _openFlashInfo:
-    _startColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
+    _startColor: {r: 0.9019608, g: 0.54509807, b: 0.10980392, a: 1}
     _endColor: {r: 0, g: 0, b: 0, a: 0}
     _duration: 1
     _curve:
@@ -903,7 +903,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   _closeFlashInfo:
     _startColor: {r: 0, g: 0, b: 0, a: 0}
-    _endColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 1}
+    _endColor: {r: 0.9019608, g: 0.54509807, b: 0.10980392, a: 1}
     _duration: 1
     _curve:
       serializedVersion: 2

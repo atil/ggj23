@@ -2792,13 +2792,26 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  _closeFlashInfo:
+    _startColor: {r: 0, g: 0, b: 0, a: 0}
+    _endColor: {r: 0, g: 0, b: 0, a: 0}
+    _duration: 0
+    _curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   emailFrom: {fileID: 1497744193}
   emailTo: {fileID: 1777242891}
   emailSubject: {fileID: 1143210087}
   emailContent: {fileID: 188240250}
+  _emailForwardButton: {fileID: 96054706}
+  _emailDeleteButton: {fileID: 152819596}
   _notificationRoot: {fileID: 1144118654}
   _confirmationRoot: {fileID: 559500201}
   _confirmationText: {fileID: 1724151815}
+  _confirmationButton: {fileID: 1912195760}
 --- !u!114 &1470214249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3806,7 +3819,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1849588137}
         m_TargetAssemblyTypeName: Game.GameMain, Game
-        m_MethodName: NotificationClicked
+        m_MethodName: ConfirmationClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

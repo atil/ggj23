@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using JamKit;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -85,6 +86,19 @@ namespace Game
 
         public void ConfirmationClicked()
         {
+            // End game
+            if (_currentEmailIndex == _emails.Length - 1)
+            {
+                PlayerPrefs.SetInt("root_score", _score);
+                gameUi.FadeOut();
+                CoroutineStarter.RunDelayed(1.0f, () =>
+                {
+                    SceneManager.LoadScene("End");
+                });
+
+                return;
+            }
+
             Sfx.Instance.Play("ClickMenu");
             SetState(GameState.Wait);
             gameUi.ClearConfirmation();
@@ -101,6 +115,7 @@ namespace Game
                 case GameState.Wait:
                     CoroutineStarter.RunDelayed(UnityEngine.Random.Range(1.0f, 1.5f), () =>
                     {
+                        Sfx.Instance.Play("Notification");
                         SetState(GameState.Notification);
                     });
                     break;
