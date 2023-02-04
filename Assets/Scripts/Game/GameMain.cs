@@ -15,6 +15,8 @@ namespace Game
     {
 		public GameUi gameUi;
 
+		int score = 0;
+
 		int currentEmailIndex = 0;
 		Email[] emails;
 		private void Start()
@@ -41,13 +43,13 @@ namespace Game
 		public void ResponseGiven(int result)
 		{
 			Email email = emails[currentEmailIndex];
-			if(email.expectedResult == (EmailResult)result)
+			if((EmailResult)result == EmailResult.Yes)
 			{
-
+				score += email.forwardScore;
 			}
 			else
 			{
-
+				score += email.reportScore;
 			}
 			currentEmailIndex++;
 			SetEmail(emails[currentEmailIndex]);

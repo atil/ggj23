@@ -15,7 +15,8 @@ namespace Game
 		public string subject;
 		public string messageBody;
 
-		public EmailResult expectedResult;
+		public int forwardScore;
+		public int reportScore;
 	}
 }
 
