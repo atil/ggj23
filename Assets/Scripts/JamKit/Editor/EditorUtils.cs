@@ -39,7 +39,7 @@ namespace JamKit
                 return;
             }
 
-            const string projectName = "ggj23"; // Set this when you open a project in itch
+            const string projectName = "root"; // Set this when you open a project in itch
 
             BuildWebGL();
 

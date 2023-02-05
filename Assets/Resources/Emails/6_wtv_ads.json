@@ -1,10 +1,10 @@
 {
   "Index": 6,
   "From": "rhanson@wtv.com",
-  "To": "rooter5374@root.com",
+  "To": "info@root.com",
   "ExpectedResult": "yes",
   "Subject": "Ads Update",
   "ForwardScore": 1,
   "ReportScore": -1,
-  "MessageBody": "To whom it may concern,\n\nWe completed our contract to spread the #blaze news.\n\nThe ads are shown on our White TV right now.\n\nIf you have any more inquiry, please don’t hesitate to reach out to me.\n\nBest,\n\nRonald from White TV"
+  "MessageBody": "To whom it may concern,\n\nWe signed our contract to spread the #BLAZE news.\n\nThe ads are shown on our White TV at the moment.\n\n For any further inquiries, please don’t hesitate to reach out to me.\n\nBest,\n\nRonald"
 }
