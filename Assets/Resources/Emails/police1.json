@@ -1,0 +1,10 @@
+{
+  "Index": 0,
+  "From": "police@gov.com",
+  "To": "rooter5374@root.com",
+  "ExpectedResult": "yes",
+  "Subject": "IMPORTANT SUBJECT",
+  "ForwardScore": 1,
+  "ReportScore": -1,
+  "MessageBody": "Dear Sir/Madam\n\nI want to highlight that there are some acquisitions against your internet actions. It is reported that you have joined an unauthorized organization..\n\nTherefore, I request you to kindly look into this matter and take the necessary action. Looking forward to your quick response.\n\nThanking you\nYours truly"
+}
