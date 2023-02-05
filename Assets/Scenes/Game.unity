@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ACCESS AUTORIZED
+  m_text: ACCESS AUTHORIZED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07afcc4ac18c1734da01786b7fc93968, type: 2}
   m_sharedMaterial: {fileID: -811185142830782615, guid: 07afcc4ac18c1734da01786b7fc93968, type: 2}

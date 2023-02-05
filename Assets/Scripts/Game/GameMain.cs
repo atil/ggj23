@@ -79,7 +79,7 @@ namespace Game
                 _emails[i].MessageBody = String.Join(" ", words);
             }
 
-            _currentEmailIndex = 0;
+            _currentEmailIndex = -1;
             SetState(GameState.Login);
         }
 
