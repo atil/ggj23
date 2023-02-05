@@ -20,6 +20,7 @@ namespace Game
         private enum GameState
         {
             Email,
+            Feedback,
             Wait,
             Notification,
             Confirmation,
@@ -30,6 +31,7 @@ namespace Game
         private int _score = 0;
         private EmailResult? _lastResponse = null;
 
+        private int _currentScreenIndex = 0;
         private int _currentEmailIndex = 0;
         private Email[] _emails;
         private GameState _currentState = GameState.Email;
@@ -85,6 +87,11 @@ namespace Game
             gameUi.SetEmail(email);
         }
 
+        private void SetFeedback()
+        {
+            gameUi.SetFeedback();
+        }
+
         public void ResponseGiven(int resultInt)
         {
             Email email = _emails[_currentEmailIndex];
@@ -106,12 +113,25 @@ namespace Game
             SetState(GameState.Confirmation);
         }
 
+        public void VoidResponseGiven()
+        {
+            Sfx.Instance.PlayRandom("Forward");
+            gameUi.ClearFeedback();
+            SetState(GameState.Wait);
+        }
+
         public void NotificationClicked()
         {
-            _currentEmailIndex++;
-
+            _currentScreenIndex++;
             Sfx.Instance.Play("ClickMenu");
-            SetState(GameState.Email);
+            if (_currentScreenIndex % 2 == 0)
+            {
+                SetState(GameState.Feedback);
+            } else
+            {
+                _currentEmailIndex++;
+                SetState(GameState.Email);
+            }
             gameUi.ClearNotification();
         }
 
@@ -142,6 +162,9 @@ namespace Game
             {
                 case GameState.Email:
                     SetEmail(_emails[_currentEmailIndex]);
+                    break;
+                case GameState.Feedback:
+                    SetFeedback();
                     break;
                 case GameState.Wait:
                     gameUi.SetLogo();

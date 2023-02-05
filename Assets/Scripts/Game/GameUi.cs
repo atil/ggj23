@@ -18,6 +18,7 @@ namespace Game
         [SerializeField] private Button _emailForwardButton;
         [SerializeField] private Button _emailDeleteButton;
 
+        [SerializeField] private GameObject _feedbackRoot;
         [SerializeField] private GameObject _notificationRoot;
         [SerializeField] private GameObject _confirmationRoot;
         [SerializeField] private TextMeshProUGUI _confirmationText;
@@ -49,6 +50,18 @@ namespace Game
             emailContent.text = "";
             _emailForwardButton.interactable = false;
             _emailDeleteButton.interactable = false;
+        }
+
+        public void SetFeedback()
+        {
+            _feedbackRoot.SetActive(true);
+            _logoRoot.SetActive(false);
+
+        }
+
+        public void ClearFeedback()
+        {
+            _feedbackRoot.SetActive(false);
         }
 
         public void SetConfirmation(EmailResult value)
