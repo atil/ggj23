@@ -19,6 +19,7 @@ namespace Game
     {
         private enum GameState
         {
+            Login,
             Email,
             Feedback,
             Wait,
@@ -34,7 +35,7 @@ namespace Game
         private int _currentScreenIndex = 0;
         private int _currentEmailIndex = 0;
         private Email[] _emails;
-        private GameState _currentState = GameState.Email;
+        private GameState _currentState;
 
         private void Start()
         {
@@ -79,7 +80,7 @@ namespace Game
             }
 
             _currentEmailIndex = 0;
-            SetState(GameState.Email);
+            SetState(GameState.Login);
         }
 
         private void SetEmail(Email email)
@@ -92,6 +93,12 @@ namespace Game
             bool isPositive = _score > _currentEmailIndex / 2.0f;
             int follower = isPositive ? (int)Mathf.Pow(17f, _score) : 1;
             gameUi.SetFeedback(week, isPositive, follower);
+        }
+
+        public void LoginClicked()
+        {
+            Sfx.Instance.Play("ClickLogin");
+            SetState(GameState.Wait);
         }
 
         public void ResponseGiven(int resultInt)
@@ -129,7 +136,8 @@ namespace Game
             if (_currentScreenIndex % 4 == 0)
             {
                 SetState(GameState.Feedback);
-            } else
+            }
+            else
             {
                 _currentEmailIndex++;
                 SetState(GameState.Email);
@@ -162,6 +170,9 @@ namespace Game
             _currentState = newState;
             switch (_currentState)
             {
+                case GameState.Login:
+                    gameUi.SetLogin();
+                    break;
                 case GameState.Email:
                     SetEmail(_emails[_currentEmailIndex]);
                     break;
@@ -172,7 +183,7 @@ namespace Game
                     gameUi.SetLogo();
                     CoroutineStarter.RunDelayed(UnityEngine.Random.Range(1.0f, 1.5f), () =>
                     {
-                        Sfx.Instance.Play("Notification");
+                        Sfx.Instance.PlayRandom("Notification");
                         SetState(GameState.Notification);
                     });
                     break;

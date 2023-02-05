@@ -13,6 +13,7 @@ namespace Game
 
         void Start()
         {
+            Sfx.Instance.Play("Splash");
             Flash(_openFlashInfo);
         }
 

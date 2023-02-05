@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 namespace Game
 {
@@ -18,6 +19,7 @@ namespace Game
         [SerializeField] private Button _emailForwardButton;
         [SerializeField] private Button _emailDeleteButton;
 
+        [SerializeField] private GameObject _loginRoot;
         [SerializeField] private GameObject _feedbackRoot;
         [SerializeField] private GameObject _notificationRoot;
         [SerializeField] private GameObject _confirmationRoot;
@@ -61,6 +63,7 @@ namespace Game
             _emailForwardButton.interactable = true;
             _emailDeleteButton.interactable = true;
 
+            _loginRoot.SetActive(false);
             _logoRoot.SetActive(false);
         }
 
@@ -125,6 +128,11 @@ namespace Game
         {
             Flash(_closeFlashInfo);
             _confirmationButton.interactable = false;
+        }
+
+        public void SetLogin()
+        {
+            _loginRoot.SetActive(true);
         }
     }
 }

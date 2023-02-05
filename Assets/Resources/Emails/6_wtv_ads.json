@@ -3,8 +3,8 @@
   "From": "rhanson@wtv.com",
   "To": "info@root.com",
   "ExpectedResult": "yes",
-  "Subject": "Ads Update",
+  "Subject": "Contract Update",
   "ForwardScore": 1,
   "ReportScore": -1,
-  "MessageBody": "To whom it may concern,\n\nWe signed our contract to spread the #BLAZE news.\n\nThe ads are shown on our White TV at the moment.\n\n For any further inquiries, please don’t hesitate to reach out to me.\n\nBest,\n\nRonald"
+  "MessageBody": "To whom it may concern,\n\nWe signed our contract to air the content depicting #BLAZE .\n\nThe ads are shown on our White TV at the moment.\n\n For any further inquiries, please don’t hesitate to reach out to me.\n\nBest,\n\nRonald"
 }
