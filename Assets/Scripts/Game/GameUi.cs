@@ -22,6 +22,7 @@ namespace Game
         [SerializeField] private GameObject _confirmationRoot;
         [SerializeField] private TextMeshProUGUI _confirmationText;
         [SerializeField] private Button _confirmationButton;
+        [SerializeField] private GameObject _logoRoot;
 
         void Start()
         {
@@ -36,6 +37,8 @@ namespace Game
             emailContent.text = email.MessageBody;
             _emailForwardButton.interactable = true;
             _emailDeleteButton.interactable = true;
+
+            _logoRoot.SetActive(false);
         }
 
         public void ClearEmail()
@@ -52,6 +55,7 @@ namespace Game
         {
             _notificationRoot.SetActive(false);
             _confirmationRoot.SetActive(true);
+            _logoRoot.SetActive(false);
             _confirmationButton.interactable = true;
 
             _confirmationText.text = value == EmailResult.Yes ? "MESSAGE FORWARDED" : "MESSAGE DELETED";
@@ -67,11 +71,17 @@ namespace Game
         {
             _notificationRoot.SetActive(true);
             _confirmationRoot.SetActive(false);
+            _logoRoot.SetActive(false);
         }
 
         public void ClearNotification()
         {
             _notificationRoot.SetActive(false);
+        }
+
+        public void SetLogo()
+        {
+            _logoRoot.SetActive(true);
         }
 
         public void FadeOut()

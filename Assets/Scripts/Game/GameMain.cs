@@ -122,7 +122,7 @@ namespace Game
             {
                 PlayerPrefs.SetInt("root_score", _score);
                 gameUi.FadeOut();
-                CoroutineStarter.RunDelayed(1.0f, () =>
+                CoroutineStarter.RunDelayed(1.0f /* comes from UI closeFlashInfo */, () =>
                 {
                     SceneManager.LoadScene("End");
                 });
@@ -144,6 +144,7 @@ namespace Game
                     SetEmail(_emails[_currentEmailIndex]);
                     break;
                 case GameState.Wait:
+                    gameUi.SetLogo();
                     CoroutineStarter.RunDelayed(UnityEngine.Random.Range(1.0f, 1.5f), () =>
                     {
                         Sfx.Instance.Play("Notification");
