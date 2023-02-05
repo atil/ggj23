@@ -64,6 +64,10 @@ namespace Game
                 var words = _emails[i].MessageBody.Split(' ');
                 for(int j=0; j<words.Length; j++) 
                 { 
+                    if (words[j].Length <= 0)
+                    {
+                        continue;
+                    }
                     if (words[j][0] == '#')
                     {
                         words[j] = "<color=#f00008ff>" + words[j].Substring(1) + "</color>";
