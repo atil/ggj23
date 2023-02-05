@@ -43,6 +43,19 @@ namespace Game
                 emailsList.Add(email);
             }
 
+#if UNITY_EDITOR
+            foreach (Email email1 in emailsList)
+            {
+                foreach (Email email2 in emailsList)
+                {
+                    if (email1 != email2 && email1.Index == email2.Index)
+                    {
+                        Debug.LogError($"Duplicate index! {email1.Index}. Subjects: [{email1.Subject}] [{email2.Subject}]");
+                    }
+                }
+            }
+#endif
+
             _emails = emailsList.OrderBy(x => x.Index).ToArray();
 
             _currentEmailIndex = 0;
