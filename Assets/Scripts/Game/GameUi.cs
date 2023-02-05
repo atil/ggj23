@@ -78,7 +78,7 @@ namespace Game
         {
             _feedbackRoot.SetActive(true);
             _feedbackTitleText.text = _feedbackTitle + week.ToString();
-            _feedbackTitleBody.text = isPositive ? _feedbackContextPositive : _feedbackContextNegative + follower.ToString();
+            _feedbackTitleBody.text = isPositive ? _feedbackContextPositive + follower.ToString() : _feedbackContextNegative + follower.ToString();
             _logoRoot.SetActive(false);
 
         }

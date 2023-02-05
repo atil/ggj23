@@ -89,9 +89,9 @@ namespace Game
 
         private void SetFeedback(int week)
         {
-            bool isPositive = _score > _currentEmailIndex;
-            int follower = isPositive ? (int)Mathf.Pow(17, _score) : 1;
-            gameUi.SetFeedback(week, isPositive,follower);
+            bool isPositive = _score > _currentEmailIndex / 2.0f;
+            int follower = isPositive ? (int)Mathf.Pow(17f, _score) : 1;
+            gameUi.SetFeedback(week, isPositive, follower);
         }
 
         public void ResponseGiven(int resultInt)
