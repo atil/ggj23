@@ -87,6 +87,7 @@ namespace Game
         public void FadeOut()
         {
             Flash(_closeFlashInfo);
+            _confirmationButton.interactable = false;
         }
     }
 }

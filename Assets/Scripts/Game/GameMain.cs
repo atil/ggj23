@@ -59,11 +59,11 @@ namespace Game
 
             _emails = emailsList.OrderBy(x => x.Index).ToArray();
 
-            for (int i=0; i<_emails.Length; i++)
+            for (int i = 0; i < _emails.Length; i++)
             {
                 var words = _emails[i].MessageBody.Split(' ');
-                for(int j=0; j<words.Length; j++) 
-                { 
+                for (int j = 0; j < words.Length; j++)
+                {
                     if (words[j].Length <= 0)
                     {
                         continue;
