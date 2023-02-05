@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using JamKit;
 using UnityEngine.SceneManagement;
+using Codice.Client.BaseCommands;
 
 namespace Game
 {
@@ -57,6 +58,19 @@ namespace Game
 #endif
 
             _emails = emailsList.OrderBy(x => x.Index).ToArray();
+
+            for (int i=0; i<_emails.Length; i++)
+            {
+                var words = _emails[i].MessageBody.Split(' ');
+                for(int j=0; j<words.Length; j++) 
+                { 
+                    if (words[j][0] == '#')
+                    {
+                        words[j] = "<color=#f00008ff>" + words[j].Substring(1) + "</color>";
+                    }
+                }
+                _emails[i].MessageBody = String.Join(" ", words);
+            }
 
             _currentEmailIndex = 0;
             SetState(GameState.Email);
