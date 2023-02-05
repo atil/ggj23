@@ -1,0 +1,10 @@
+{
+  "Index": 18,
+  "From": "news@wtv.com",
+  "To": "all@root.com",
+  "ExpectedResult": "yes",
+  "Subject": "Officer Arrested",
+  "ForwardScore": 1,
+  "ReportScore": -1,
+  "MessageBody": "Officer Max Doe has been arrested on suspicion of being involved in an illegal organization.\nThe prosecutors say the suspect has destroyed critical evidence in an investigation against his organization last week.\nLaw enforcement is currently investigating his possible connection with the death of his colleague officer Adam, who was killed when his residence #burned down."
+}

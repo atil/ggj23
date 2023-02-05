@@ -1,0 +1,10 @@
+{
+  "Index": 17,
+  "From": "lotteryscam@gmail.com",
+  "To": "rooter4252@root.com",
+  "ExpectedResult": "no",
+  "Subject": "Lottery Prize",
+  "ForwardScore": -2,
+  "ReportScore": 1,
+  "MessageBody": "Dear Rooter,\n\nYou has won a prise of <b>500 000€</b> from December lottery.\n\nPleese click here to claim your prize."
+}
