@@ -35,17 +35,17 @@ namespace Game
         private string _feedbackContextPositive =
             "By the name of <color=#f00008ff>TAMASH</color>" +
             "\n\n" +
-            "Our <color=#f00008ff>BRAZES</color> are spreading!" +
+            "Our <color=#f00008ff>BLAZE</color> is spreading and we stand strong!" +
             "\n\n" +
-            "And you, Sub Rooter, having a great job!" +
+            "And you, Sub Rooter, doing great! Keep at it!" +
             "\n\n" +
             "Current Follower Count: ";
         private string _feedbackContextNegative =
             "By the name of <color=#f00008ff>TAMASH</color>" +
             "\n\n" +
-            "It is tragic that we lost lost of <color=#f00008ff>ROOTERS</color> this week!" +
+            "It is tragic that we lost <color=#f00008ff>ROOTERS</color> this week!" +
             "\n\n" +
-            "Sub Rooter, please do your job carefully!" +
+            "Sub Rooter, do your job carefully! Incompetency will not be tolerated!" +
             "\n\n" +
             "Current Follower Count: ";
 

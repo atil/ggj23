@@ -183,7 +183,15 @@ namespace Game
                     gameUi.SetLogo();
                     CoroutineStarter.RunDelayed(UnityEngine.Random.Range(1.0f, 1.5f), () =>
                     {
-                        Sfx.Instance.PlayRandom("Notification");
+                        if ((_currentScreenIndex + 1) % 4 == 0) // Feedback
+                        {
+                            Sfx.Instance.Play("Notification2");
+                        }
+                        else
+                        {
+                            Sfx.Instance.Play("Notification");
+                        }
+
                         SetState(GameState.Notification);
                     });
                     break;

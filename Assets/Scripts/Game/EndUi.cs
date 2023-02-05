@@ -33,7 +33,7 @@ namespace Game
             }
             else
             {
-                _gameOverText.text = "I knew the Sysadmin was a <color=#f00008ff>MAGGOT</color> all along. <color=#f00008ff>EMBLAZING</color> it was a delight.";
+                _gameOverText.text = "I knew the Sub Rooter was a <color=#f00008ff>MAGGOT</color> all along. <color=#f00008ff>EMBLAZING</color> it was a delight.";
                 _buttonText.text = "Long Live <color=#f00008ff>TAMASH!</color>";
 
                 CoroutineStarter.RunDelayed(2f, () =>
