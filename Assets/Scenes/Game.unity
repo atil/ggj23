@@ -3993,6 +3993,8 @@ MonoBehaviour:
   _confirmationText: {fileID: 1724151815}
   _confirmationButton: {fileID: 1912195760}
   _logoRoot: {fileID: 969565428}
+  _feedbackTitleText: {fileID: 1988971694}
+  _feedbackTitleBody: {fileID: 1286840611}
 --- !u!114 &1470214249
 MonoBehaviour:
   m_ObjectHideFlags: 0

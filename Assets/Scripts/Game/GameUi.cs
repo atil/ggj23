@@ -25,6 +25,28 @@ namespace Game
         [SerializeField] private Button _confirmationButton;
         [SerializeField] private GameObject _logoRoot;
 
+        [SerializeField] private TMP_Text _feedbackTitleText;
+        [SerializeField] private TMP_Text _feedbackTitleBody;
+
+
+        private string _feedbackTitle = "Week ";
+        private string _feedbackContextPositive =
+            "By the name of <color=#f00008ff>TAMASH</color>" +
+            "\n\n" +
+            "Our <color=#f00008ff>BRAZES</color> are spreading!" +
+            "\n\n" +
+            "And you, Sub Rooter, having a great job!" +
+            "\n\n" +
+            "Current Follower Count: ";
+        private string _feedbackContextNegative =
+            "By the name of <color=#f00008ff>TAMASH</color>" +
+            "\n\n" +
+            "It is tragic that we lost lost of <color=#f00008ff>ROOTERS</color> this week!" +
+            "\n\n" +
+            "Sub Rooter, please do your job carefully!" +
+            "\n\n" +
+            "Current Follower Count: ";
+
         void Start()
         {
             Flash(_openFlashInfo);
@@ -52,9 +74,11 @@ namespace Game
             _emailDeleteButton.interactable = false;
         }
 
-        public void SetFeedback()
+        public void SetFeedback(int week, bool isPositive, int follower)
         {
             _feedbackRoot.SetActive(true);
+            _feedbackTitleText.text = _feedbackTitle + week.ToString();
+            _feedbackTitleBody.text = isPositive ? _feedbackContextPositive : _feedbackContextNegative + follower.ToString();
             _logoRoot.SetActive(false);
 
         }

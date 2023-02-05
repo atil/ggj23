@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using JamKit;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Game
 {
@@ -86,9 +87,11 @@ namespace Game
             gameUi.SetEmail(email);
         }
 
-        private void SetFeedback()
+        private void SetFeedback(int week)
         {
-            gameUi.SetFeedback();
+            bool isPositive = _score > _currentEmailIndex;
+            int follower = isPositive ? (int)Mathf.Pow(17, _score) : 1;
+            gameUi.SetFeedback(week, isPositive,follower);
         }
 
         public void ResponseGiven(int resultInt)
@@ -123,7 +126,7 @@ namespace Game
         {
             _currentScreenIndex++;
             Sfx.Instance.Play("ClickMenu");
-            if (_currentScreenIndex % 2 == 0)
+            if (_currentScreenIndex % 4 == 0)
             {
                 SetState(GameState.Feedback);
             } else
@@ -163,7 +166,7 @@ namespace Game
                     SetEmail(_emails[_currentEmailIndex]);
                     break;
                 case GameState.Feedback:
-                    SetFeedback();
+                    SetFeedback(_currentScreenIndex / 4);
                     break;
                 case GameState.Wait:
                     gameUi.SetLogo();
