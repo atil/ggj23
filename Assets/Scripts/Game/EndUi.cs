@@ -21,8 +21,6 @@ namespace Game
         {
             int score = PlayerPrefs.GetInt("root_score");
 
-            // TODO TEMP
-            score = -1;
             const int WinScore = 0;
 
             if (score >= WinScore)
